@@ -1,0 +1,26 @@
+<div class="example-container">
+  <form (ngSubmit)="onSubmit(user)">
+    <mat-form-field>
+      <input matInput placeholder="Email" name="email" [formControl]="emailFormControl" [errorStateMatcher]="matcher" [(ngModel)]="user.email">
+      <mat-hint>Must be a valid email</mat-hint>
+      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Email is
+        <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput placeholder="Username" name="username" [(ngModel)]="user.username"  [formControl]="genFormControl">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Password" name="password" [(ngModel)]="user.password" [formControl]="genFormControl">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Confirm" name="passwordConf" [(ngModel)]="user.passwordConf" [formControl]="genFormControl">
+    </mat-form-field>
+    <button mat-button type="submit">Submit</button>
+  </form>
+</div>

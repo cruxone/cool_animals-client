@@ -1,0 +1,11 @@
+<div class="example-container">
+  <form (ngSubmit)="onSubmit(user)">
+    <mat-form-field>
+      <input matInput placeholder="Username" name="username" [(ngModel)]="user.username"  [formControl]="genFormControl" (ngModel)="user.username">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Password" name="password" [(ngModel)]="user.password" [formControl]="genFormControl" (ngModel)="user.username">
+    </mat-form-field>
+    <button mat-button type="submit">Submit</button>
+  </form>
+</div>
